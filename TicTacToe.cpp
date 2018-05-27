@@ -66,6 +66,54 @@ void TicTacToe::play(Player &xPlayer, Player &oPlayer){
 }
 
 
+//bool TicTacToe::checkWinner(char c){
+//    bool winning = true;
+//
+//    for(int i = 0; i< game.size ; i++){
+//        winning = true;
+//        for(int j = 0; j<game.size ; j++){
+//            if(game[{i,j}] != c){
+//                winning = false;
+//                break;
+//            }
+//        }
+//        if(winning)
+//            return true;
+//        
+//        winning = true;
+//        for(int k = 0; k<game.size ; k++){
+//            if(game[{k,i}] != c){
+//                winning = false;
+//                break;
+//            }
+//        }
+//        if(winning)
+//            return true;
+//    }
+//    
+//    winning = true;
+//    for(int i = 0; i<game.size ; i++){
+//        if(game[{i,i}] != c){
+//            winning = false;
+//            break;
+//        }
+//         if(game[{game.size-i-1,i}] != c){
+//            winning = false;
+//            break;
+//        }
+//         
+//    }
+//    if(winning)
+//        return true;
+//    winning = true;
+//    for(int i = 0; i<game.size ; i++){
+//        if(game[{game.size-i-1,i}] != c){
+//            winning = false;
+//            break;
+//        }
+//    }
+//    return winning;
+//}
 bool TicTacToe::checkWinner(char c){
     bool winning = true;
 
@@ -89,18 +137,33 @@ bool TicTacToe::checkWinner(char c){
         }
         if(winning)
             return true;
-    }
-    
-    winning = true;
-    for(int i = 0; i<game.size ; i++){
-        if(game[{i,i}] != c){
+        
+         if(game[{i,i}] != c){
             winning = false;
             break;
         }
-         
+          if(winning)
+            return true;
+        
+//            if(game[{game.size-i-1,i}] != c){
+//            winning = false;
+//            break;
+//        }
+//            if(winning)
+//        return true;
+    
     }
-    if(winning)
-        return true;
+    
+//    winning = true;
+//    for(int i = 0; i<game.size ; i++){
+//        if(game[{i,i}] != c){
+//            winning = false;
+//            break;
+//        }
+//               
+//    }
+//    if(winning)
+//        return true;
     winning = true;
     for(int i = 0; i<game.size ; i++){
         if(game[{game.size-i-1,i}] != c){
