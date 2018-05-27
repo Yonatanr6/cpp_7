@@ -28,8 +28,8 @@ public:
             throw ex;
         }
     }
-    void setChar(char c) {role = c;}
-    char getChar(){return role;}
+    void setRole(char c) {role = c;}
+    char getRole(){return role;}
     virtual const string name() const =0;
     virtual const Coordinate play(const Board& board)=0 ;
 };

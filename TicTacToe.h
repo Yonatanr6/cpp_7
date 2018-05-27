@@ -22,10 +22,13 @@ public:
     Player* champion;
 
 public:
-    TicTacToe(int n);
-    Board board() const;
-    Player& winner() const;
+    Board board() const{return game;};
+    Player& winner() const{return *champion;};
     void play(Player& xPlayer, Player& oPlayer);
     bool checkWinner(char c);
 
+    
+    TicTacToe(int num):game(num){
+    size=num;
+}
 };

@@ -22,7 +22,7 @@ using namespace std;
 void printResults(const TicTacToe& game) {
 	cout << endl << "The final board is " << endl << game.board();
 	cout << "And the winner is " << game.winner().name() 
-	     << ", playing as " << game.winner().getChar() << "!" << endl;
+	     << ", playing as " << game.winner().getRole() << "!" << endl;
 }
 
 void playAndPrintResults(TicTacToe& game, Player& xPlayer, Player& oPlayer) {
@@ -33,7 +33,7 @@ void playAndPrintResults(TicTacToe& game, Player& xPlayer, Player& oPlayer) {
 void playAndPrintWinner(TicTacToe& game, Player& xPlayer, Player& oPlayer) {
 	game.play(xPlayer, oPlayer);
 	cout << "The winner is " << game.winner().name() 
-	     << ", playing as " << game.winner().getChar() << "!" << endl;
+	     << ", playing as " << game.winner().getRole() << "!" << endl;
 }
 
 
