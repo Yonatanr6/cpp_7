@@ -25,6 +25,7 @@ public:
     Board board() const{return game;};
     Player& winner() const{return *champion;};
     void play(Player& xPlayer, Player& oPlayer);
+    bool move(Player &Player, int game_size, Coordinate c);
     bool checkWinner(char c);
 
     
