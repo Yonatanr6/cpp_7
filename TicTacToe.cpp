@@ -16,55 +16,6 @@
 using namespace std;
 
 
-
-//void TicTacToe::play(Player &xPlayer, Player &oPlayer){
-//    game ='.'; 
-//    int turns = game.size*game.size;
-//    int count = 0;
-//    xPlayer.setRole('X');
-//    oPlayer.setRole('O');
-//    Coordinate c(0,0);
-//    while(count < turns){
-//        count++;
-//        try{c.setCoordinate(xPlayer.play(game));
-//            if(game[c]=='.')
-//                game[c] = xPlayer.getChar();
-//            else{
-//                player = &oPlayer;
-//                return;
-//            }
-//        }
-//        catch(...) {
-//            player = &oPlayer; 
-//            return;
-//        }
-//        if(checkWinner('X')) {
-//            player = &xPlayer; 
-//            return;
-//        }
-//        count++;
-//        if(count < turns){
-//            try{c.setCoordinate(oPlayer.play(game));
-//                if(game[c]=='.')
-//                    game[c] = oPlayer.getChar();
-//                else{
-//                    player = &xPlayer; 
-//                    return;
-//                }
-//            }
-//            catch(...) {
-//                player = &xPlayer; 
-//                return;
-//            }
-//            if(checkWinner('O')) {
-//                player= &oPlayer; 
-//                return;
-//            }
-//        }
-//    }
-//    player = &oPlayer;
-//}
-
 void TicTacToe::play(Player &xPlayer, Player &oPlayer){
     game ='.'; 
     int turns = game.size*game.size;
