@@ -27,7 +27,5 @@ public:
     bool checkWinner(char c);
     
     TicTacToe(int num):game(num){}
-    ~TicTacToe(){
-        delete[] player;
-    }
+   
 };
