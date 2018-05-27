@@ -19,31 +19,26 @@ using namespace std;
 class Champion : public Player{
     
 public:
-//    const Coordinate play(const Board& board) override{
+
+    const Coordinate play(const Board& board) override{
+//        int k = board.size-1;
 //        for (int i=0; i<board.size; ++i) {
-//        int t = board.size-1-i;
-//        Coordinate c{t,i};
-//        t = board.size-1;
-//        if(i==1 && board[{0,t}] == '.'){
-//            c.setRow(0); c.setCol(board.size-1);
+//        Coordinate c{k-i,i};
+//        if(i==1 && board[{0,k}] == '.'){
+//            c.setRow(0); 
+//            c.setCol(board.size-1);
 //        }
 //        if(board[c]=='.') {
 //            return c;
 //        }
 //    }
-//    return {0,0};
-//    };
-    const Coordinate play(const Board& board) override{
-        int k = board.size-1;
-        for (int i=0; i<board.size; ++i) {
-        Coordinate c{k-i,i};
-        if(i==1 && board[{0,k}] == '.'){
-            c.setRow(0); c.setCol(board.size-1);
-        }
-        if(board[c]=='.') {
+    for (int i = 0; i < board.size; i++) {
+        for (int j = 0; j < board.size; j++) {
+          Coordinate c{i,j};
+          if(board[c] != '.')
             return c;
         }
-    }
+      }
     return {0,0};
     };
     
