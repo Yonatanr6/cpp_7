@@ -17,8 +17,7 @@ using namespace std;
 
 
 
-void TicTacToe::play(Player &xPlayer, Player &oPlayer)
-{
+void TicTacToe::play(Player &xPlayer, Player &oPlayer){
     game ='.'; 
     int turns = game.size*game.size;
     int count = 0;
@@ -39,7 +38,6 @@ void TicTacToe::play(Player &xPlayer, Player &oPlayer)
             player = &oPlayer; 
             return;
         }
-
         if(checkWinner('X')) {
             player = &xPlayer; 
             return;
@@ -58,7 +56,6 @@ void TicTacToe::play(Player &xPlayer, Player &oPlayer)
                 player = &xPlayer; 
                 return;
             }
-
             if(checkWinner('O')) {
                 player= &oPlayer; 
                 return;
@@ -82,7 +79,7 @@ bool TicTacToe::checkWinner(char c){
         }
         if(winning)
             return true;
-
+        
         winning = true;
         for(int k = 0; k<game.size ; k++){
             if(game[{k,i}] != c){
@@ -93,17 +90,14 @@ bool TicTacToe::checkWinner(char c){
         if(winning)
             return true;
     }
-
+    
     winning = true;
     for(int i = 0; i<game.size ; i++){
         if(game[{i,i}] != c){
             winning = false;
             break;
         }
-         if(game[{game.size-i-1,i}] != c){
-            winning = false;
-            break;
-        }
+         
     }
     if(winning)
         return true;
