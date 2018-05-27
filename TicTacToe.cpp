@@ -33,12 +33,12 @@ void TicTacToe::play(Player &xPlayer, Player &oPlayer)
                 game[c] = xPlayer.getChar();
             else{
                 champion = &oPlayer;
-                //return;
+                return;
             }
         }
         catch(const string& msg) {
             champion = &oPlayer; 
-            //return;
+            return;
         }
 
         if(checkWinner('X')) {
