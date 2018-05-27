@@ -12,28 +12,11 @@
  */
 #pragma once
 #include "Board.h"
+#include "Player.h"
 #include <iostream>
 using namespace std;
 
 
-class Player{
-
-public:
-    char role;
-    Player(){}
-    Player(char c){
-        if (c=='O' || c== 'X')
-            role=c;
-        else{
-            IllegalCharException ex(c);
-            throw ex;
-        }
-    }
-    void setChar(char c) {role = c;}
-    char getChar(){return role;}
-    virtual const string name() const =0;
-    virtual const Coordinate play(const Board& board)=0 ;
-};
 
 
 class XYPlayer: public Player{

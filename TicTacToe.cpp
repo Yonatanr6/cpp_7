@@ -10,7 +10,7 @@
  * 
  * Created on May 26, 2018, 3:06 PM
  */
-#pragma once
+
 #include "TicTacToe.h"
 #include <iostream>
 using namespace std;
