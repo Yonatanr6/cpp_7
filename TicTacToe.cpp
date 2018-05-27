@@ -17,76 +17,48 @@ using namespace std;
 
 
 
-//void TicTacToe::play(Player &xPlayer, Player &oPlayer)
-//{
-//    game ='.'; 
-//    int game_size = size*size;
-//    int count = 0;
-//    xPlayer.setRole('X');
-//    oPlayer.setRole('O');
-//    Coordinate c(0,0);
-//    while(count < game_size){
-//        count++;
-//        try{c.setCoordinate(xPlayer.play(game));
-//            if(game[c]=='.')
-//                game[c] = xPlayer.getChar();
-//            else{
-//                champion = &oPlayer;
-//                return;
-//            }
-//        }
-//        catch(const string& msg) {
-//            champion = &oPlayer; 
-//            return;
-//        }
-//
-//        if(checkWinner('X')) {
-//            champion = &xPlayer; 
-//            return;
-//        }
-//        count++;
-//        if(count < game_size){
-//            try{c.setCoordinate(oPlayer.play(game));
-//                if(game[c]=='.')
-//                    game[c] = oPlayer.getChar();
-//                else{
-//                    champion = &xPlayer; 
-//                    return;
-//                }
-//            }
-//            catch(const string& msg) {
-//                champion = &xPlayer; 
-//                return;
-//            }
-//
-//            if(checkWinner('O')) {
-//                champion= &oPlayer; 
-//                return;
-//            }
-//        }
-//    }
-//    champion = &oPlayer;
-//}
 void TicTacToe::play(Player &xPlayer, Player &oPlayer)
 {
     game ='.'; 
-    int game_size = size*size;
+    int turns = game.size*game.size;
     int count = 0;
     xPlayer.setRole('X');
     oPlayer.setRole('O');
     Coordinate c(0,0);
-    while(count < game_size){
+    while(count < turns){
         count++;
-        if(move(xPlayer,game_size,c))
-        champion = &xPlayer;
+        try{c.setCoordinate(xPlayer.play(game));
+            if(game[c]=='.')
+                game[c] = xPlayer.getChar();
+            else{
+                champion = &oPlayer;
+                return;
+            }
+        }
+        catch(const string& msg) {
+            champion = &oPlayer; 
+            return;
+        }
+
         if(checkWinner('X')) {
             champion = &xPlayer; 
             return;
         }
         count++;
-        if(count < game_size){
-         if(move(oPlayer,game_size,c))
-         champion = &oPlayer;
+        if(count < turns){
+            try{c.setCoordinate(oPlayer.play(game));
+                if(game[c]=='.')
+                    game[c] = oPlayer.getChar();
+                else{
+                    champion = &xPlayer; 
+                    return;
+                }
+            }
+            catch(const string& msg) {
+                champion = &xPlayer; 
+                return;
+            }
+
             if(checkWinner('O')) {
                 champion= &oPlayer; 
                 return;
@@ -96,33 +68,13 @@ void TicTacToe::play(Player &xPlayer, Player &oPlayer)
     champion = &oPlayer;
 }
 
-bool TicTacToe::move(Player &Player, int game_size, Coordinate c){
- 
-    bool winning = true;
-    try{c.setCoordinate(Player.play(game));
-        if(game[c]=='.')
-            game[c] = Player.getChar();
-        else{
-            winning = false;
-            //champion = &xPlayer; 
-            //return;
-        }
-    }
-    catch(const string& msg) {
-        winning = false;
-        //champion = &xPlayer; 
-        //return;
-    }
-    return winning;
-
-}
 
 bool TicTacToe::checkWinner(char c){
     bool winning = true;
 
-    for(int i = 0; i< size ; i++){
+    for(int i = 0; i< game.size ; i++){
         winning = true;
-        for(int j = 0; j<size ; j++){
+        for(int j = 0; j<game.size ; j++){
             if(game[{i,j}] != c){
                 winning = false;
                 break;
@@ -132,7 +84,7 @@ bool TicTacToe::checkWinner(char c){
             return true;
 
         winning = true;
-        for(int k = 0; k<size ; k++){
+        for(int k = 0; k<game.size ; k++){
             if(game[{k,i}] != c){
                 winning = false;
                 break;
@@ -143,8 +95,12 @@ bool TicTacToe::checkWinner(char c){
     }
 
     winning = true;
-    for(int i = 0; i<size ; i++){
+    for(int i = 0; i<game.size ; i++){
         if(game[{i,i}] != c){
+            winning = false;
+            break;
+        }
+         if(game[{game.size-i-1,i}] != c){
             winning = false;
             break;
         }
@@ -152,8 +108,8 @@ bool TicTacToe::checkWinner(char c){
     if(winning)
         return true;
     winning = true;
-    for(int i = 0; i<size ; i++){
-        if(game[{size-i-1,i}] != c){
+    for(int i = 0; i<game.size ; i++){
+        if(game[{game.size-i-1,i}] != c){
             winning = false;
             break;
         }

@@ -19,7 +19,19 @@ using namespace std;
 class Champion : public Player
 {
 public:
-    const Coordinate play(const Board& board) override ;
+    const Coordinate play(const Board& board) override{ for (int i=0; i<board.size; ++i) {
+        int t = board.size-1-i;
+        Coordinate c{t,i};
+        t = board.size-1;
+        if(i==1 && board[{0,t}] == '.'){
+            c.setRow(0); c.setCol(board.size-1);
+        }
+        if(board[c]=='.') {
+            return c;
+        }
+    }
+    return {0,0};
+    };
     const string name() const override{
  return "Yonatan Rofsov & Shiran Anasker";
  }
