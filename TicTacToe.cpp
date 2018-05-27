@@ -120,7 +120,7 @@ bool TicTacToe::checkWinner(char c){
     for(int i = 0; i< game.size ; i++){
         winning = true;
         for(int j = 0; j<game.size ; j++){
-            if(game[{i,j}] != c){
+            if(game[{i,j}] != c||game[{j,i}] != c){
                 winning = false;
                 break;
             }
@@ -128,17 +128,17 @@ bool TicTacToe::checkWinner(char c){
         if(winning)
             return true;
         
-        winning = true;
-        for(int k = 0; k<game.size ; k++){
-            if(game[{k,i}] != c){
-                winning = false;
-                break;
-            }
-        }
-        if(winning)
-            return true;
-        
-         if(game[{i,i}] != c){
+//        winning = true;
+//        for(int k = 0; k<game.size ; k++){
+//            if(game[{k,i}] != c){
+//                winning = false;
+//                break;
+//            }
+//        }
+//        if(winning)
+//            return true;
+//        
+         if(game[{i,i}] != c||game[{game.size-i-1,i}] != c){
             winning = false;
             break;
         }
@@ -164,12 +164,12 @@ bool TicTacToe::checkWinner(char c){
 //    }
 //    if(winning)
 //        return true;
-    winning = true;
-    for(int i = 0; i<game.size ; i++){
-        if(game[{game.size-i-1,i}] != c){
-            winning = false;
-            break;
-        }
-    }
+//    winning = true;
+//    for(int i = 0; i<game.size ; i++){
+//        if(game[{game.size-i-1,i}] != c){
+//            winning = false;
+//            break;
+//        }
+//    }
     return winning;
 }
