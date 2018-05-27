@@ -120,7 +120,7 @@ bool TicTacToe::checkWinner(char c){
     for(int i = 0; i< game.size ; i++){
         winning = true;
         for(int j = 0; j<game.size ; j++){
-            if(game[{i,j}] != c||game[{j,i}] != c){
+            if(game[{i,j}] != c&&game[{j,i}] != c){
                 winning = false;
                 break;
             }
