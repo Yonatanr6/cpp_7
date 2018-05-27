@@ -29,7 +29,7 @@ public:
         }
     }
     void setRole(char c) {role = c;}
-    char getRole(){return role;}
+    char getChar(){return role;}
     virtual const string name() const =0;
     virtual const Coordinate play(const Board& board)=0 ;
 };

@@ -30,43 +30,45 @@ void TicTacToe::play(Player &xPlayer, Player &oPlayer)
         try{
             c.setCoordinate(xPlayer.play(game));
             if(game[c]=='.')
-                game[c] = xPlayer.getRole();
+                game[c] = xPlayer.getChar();
             else{
                 champion = &oPlayer;
-                break;
+                //return;
             }
         }
         catch(const string& msg) {
-            champion = &oPlayer; return;
+            champion = &oPlayer; 
+            //return;
         }
 
         if(checkWinner('X')) {
-            champion = &xPlayer; return;
+            champion = &xPlayer; 
+            return;
         }
         count++;
         if(count < game_size){
             try{
                 c.setCoordinate(oPlayer.play(game));
                 if(game[c]=='.')
-                    game[c] = oPlayer.getRole();
+                    game[c] = oPlayer.getChar();
                 else{
-                    champion = &xPlayer; return;
+                    champion = &xPlayer; 
+                    return;
                 }
             }
             catch(const string& msg) {
-                champion = &xPlayer; return;
+                champion = &xPlayer; 
+                return;
             }
 
             if(checkWinner('O')) {
-                champion= &oPlayer; return;
+                champion= &oPlayer; 
+                return;
             }
         }
     }
     champion = &oPlayer;
 }
-
-
-
 bool TicTacToe::checkWinner(char c)
 {
     bool winning = true;
