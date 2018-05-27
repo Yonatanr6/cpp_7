@@ -18,13 +18,16 @@ using namespace std;
 class TicTacToe{
 public:
     Board game;
-    Player* champion;
+    Player* player;
 
 public:
     Board board() const{return game;};
-    Player& winner() const{return *champion;};
+    Player& winner() const{return *player;};
     void play(Player& xPlayer, Player& oPlayer);
     bool checkWinner(char c);
     
     TicTacToe(int num):game(num){}
+    ~TicTacToe(){
+        delete[] player;
+    }
 };

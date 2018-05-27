@@ -31,17 +31,17 @@ void TicTacToe::play(Player &xPlayer, Player &oPlayer)
             if(game[c]=='.')
                 game[c] = xPlayer.getChar();
             else{
-                champion = &oPlayer;
+                player = &oPlayer;
                 return;
             }
         }
-        catch(const string& msg) {
-            champion = &oPlayer; 
+        catch(...) {
+            player = &oPlayer; 
             return;
         }
 
         if(checkWinner('X')) {
-            champion = &xPlayer; 
+            player = &xPlayer; 
             return;
         }
         count++;
@@ -50,22 +50,22 @@ void TicTacToe::play(Player &xPlayer, Player &oPlayer)
                 if(game[c]=='.')
                     game[c] = oPlayer.getChar();
                 else{
-                    champion = &xPlayer; 
+                    player = &xPlayer; 
                     return;
                 }
             }
-            catch(const string& msg) {
-                champion = &xPlayer; 
+            catch(...) {
+                player = &xPlayer; 
                 return;
             }
 
             if(checkWinner('O')) {
-                champion= &oPlayer; 
+                player= &oPlayer; 
                 return;
             }
         }
     }
-    champion = &oPlayer;
+    player = &oPlayer;
 }
 
 

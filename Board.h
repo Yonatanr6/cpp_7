@@ -86,13 +86,15 @@ class Coordinate
     int row,col;
 public:
     
-    void setCoordinate(Coordinate c);
-    int getRow()const;
-    int getCol()const;
-    void setRow(int x);
-    void setCol(int y);
-    
-    Coordinate(int x,int y):row(x),col(y) {}
+    void setCoordinate(Coordinate c){row = c.row,col = c.col;};
+    int getRow()const{return row;};
+    int getCol()const{return col;};
+    void setRow(int x){row=x;};
+    void setCol(int y){col=y;};
+
+    Coordinate(int x,int y){
+        row=x,col=y;
+    }
 };
 
 

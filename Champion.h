@@ -16,8 +16,8 @@
 #include <iostream>
 using namespace std;
 
-class Champion : public Player
-{
+class Champion : public Player{
+    
 public:
     const Coordinate play(const Board& board) override{ for (int i=0; i<board.size; ++i) {
         int t = board.size-1-i;
@@ -32,6 +32,8 @@ public:
     }
     return {0,0};
     };
+    
+    
     const string name() const override{
  return "Yonatan Rofsov & Shiran Anasker";
  }

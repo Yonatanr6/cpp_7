@@ -65,24 +65,6 @@ Node::operator char()const{
     return cell;
 }
 
- int Coordinate::getRow()const {
-     return row;
- }
- int Coordinate::getCol()const {
-        return col;
-  }
-void Coordinate::setRow(int x){
-    row=x;
-}
-void Coordinate::setCol(int y) {
-    col=y;
-}
-
-void Coordinate::setCoordinate(Coordinate c) {
-    row = c.row;
-    col = c.col;
-}
-
 Board& Board::operator=(char c){
     if (c=='.') {
         for (int j = 0; j < size; ++j) {
